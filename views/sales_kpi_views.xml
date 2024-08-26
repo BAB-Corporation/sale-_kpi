@@ -37,11 +37,25 @@
             </field>
         </record>
 
+        <!-- Define the graph view for the Sales KPI model -->
+        <record id="view_sales_kpi_graph" model="ir.ui.view">
+            <field name="name">sales.kpi.graph</field>
+            <field name="model">sales.kpi</field>
+            <field name="arch" type="xml">
+                <graph string="Sales KPI" type="bar">
+                    <field name="target_value" type="measure"/>
+                    <field name="actual_value" type="measure"/>
+                    <field name="percentage_achieved" type="measure"/>
+                    <field name="name" type="col"/>
+                </graph>
+            </field>
+        </record>
+
         <!-- Define the action for the Sales KPI model -->
         <record id="action_sales_kpi" model="ir.actions.act_window">
             <field name="name">Sales KPI</field>
             <field name="res_model">sales.kpi</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field> <!-- Updated to include graph view -->
         </record>
 
         <!-- Add the action to the Sales menu or other appropriate parent -->
