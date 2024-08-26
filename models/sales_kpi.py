@@ -4,8 +4,8 @@ class SalesKPI(models.Model):
     _name = 'sales.kpi'
     _description = 'Sales KPIs'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-
-    name = fields.Char(string='KPI Name', required=True, track_visibility='onchange')
+    name = fields.Char(string='KPI Name', required=True, track_visibility='onchange'
+    tag_ids = fields.Many2many('some.model', string='Tags')  # 
     description = fields.Text(string='Description')
     target_value = fields.Float(string='Target Value', required=True, track_visibility='onchange')
     actual_value = fields.Float(string='Actual Value', compute='_compute_actual_value', store=True)
