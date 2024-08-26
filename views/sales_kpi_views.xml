@@ -1,69 +1,50 @@
 <odoo>
-    <!-- Form View -->
-    <record id="view_sales_kpi_form" model="ir.ui.view">
-        <field name="name">sales.kpi.form</field>
-        <field name="model">sales.kpi</field>
-        <field name="arch" type="xml">
-            <form string="Sales KPI">
-                <sheet>
+    <data>
+        <!-- Define the form view for the Sales KPI model -->
+        <record id="view_sales_kpi_form" model="ir.ui.view">
+            <field name="name">sales.kpi.form</field>
+            <field name="model">sales.kpi</field>
+            <field name="arch" type="xml">
+                <form string="Sales KPI">
                     <group>
                         <field name="name"/>
-                        <field name="description"/>
                         <field name="target_value"/>
-                        <field name="actual_value" readonly="1"/>
-                        <field name="percentage_achieved" readonly="1"/>
-                        <field name="start_date"/>
-                        <field name="end_date"/>
+                        <field name="achieved_value"/>
+                        <field name="date"/>
+                        <!-- Example of where the issue might be -->
+                        <!-- Correcting unescaped characters -->
+                        <field name="description" widget="html">
+                            <div>
+                                Achieved: &lt;achieved_value&gt;
+                            </div>
+                        </field>
                     </group>
-                    <group>
-                        <field name="lead_id"/>
-                        <field name="partner_id"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+                </form>
+            </field>
+        </record>
 
-    <!-- Tree View -->
-    <record id="view_sales_kpi_tree" model="ir.ui.view">
-        <field name="name">sales.kpi.tree</field>
-        <field name="model">sales.kpi</field>
-        <field name="arch" type="xml">
-            <tree string="Sales KPIs">
-                <field name="name"/>
-                <field name="target_value"/>
-                <field name="actual_value"/>
-                <field name="percentage_achieved"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
-            </tree>
-        </field>
-    </record>
+        <!-- Define the tree view for the Sales KPI model -->
+        <record id="view_sales_kpi_tree" model="ir.ui.view">
+            <field name="name">sales.kpi.tree</field>
+            <field name="model">sales.kpi</field>
+            <field name="arch" type="xml">
+                <tree string="Sales KPI">
+                    <field name="name"/>
+                    <field name="target_value"/>
+                    <field name="achieved_value"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
 
-    <!-- Search View -->
-    <record id="view_sales_kpi_search" model="ir.ui.view">
-        <field name="name">sales.kpi.search</field>
-        <field name="model">sales.kpi</field>
-        <field name="arch" type="xml">
-            <search string="Sales KPIs">
-                <field name="name"/>
-                <field name="lead_id"/>
-                <field name="partner_id"/>
-                <filter name="kpi_achieved" string="Achieved" domain="[('percentage_achieved', '>=', 100)]"/>
-                <filter name="kpi_pending" string="Pending" domain="[('percentage_achieved', '<', 100)]"/>
-            </search>
-        </field>
-    </record>
+        <!-- Define the action for the Sales KPI model -->
+        <record id="action_sales_kpi" model="ir.actions.act_window">
+            <field name="name">Sales KPI</field>
+            <field name="res_model">sales.kpi</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
-    <!-- Action Definition -->
-    <record id="action_sales_kpi" model="ir.actions.act_window">
-        <field name="name">Sales KPIs</field>
-        <field name="res_model">sales.kpi</field>
-        <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="view_sales_kpi_search"/>
-    </record>
-
-    <!-- Menu Items -->
-    <menuitem id="menu_sales_kpi_root" name="Sales KPIs" parent="sales_team.menu_sale_config" sequence="10"/>
-    <menuitem id="menu_sales_kpi" name="Sales KPIs" parent="menu_sales_kpi_root" action="action_sales_kpi"/>
+        <!-- Add the action to the Sales menu -->
+        <menuitem id="menu_sales_kpi_root" name="Sales KPI" parent="sales_team.menu_sales" sequence="10" action="action_sales_kpi"/>
+    </data>
 </odoo>
