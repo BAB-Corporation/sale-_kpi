@@ -1,0 +1,28 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Example data records for Sales KPI -->
+
+        <!-- Example KPI 1 -->
+        <record id="sales_kpi_example_1" model="sales.kpi">
+            <field name="name">Increase Sales Revenue</field>
+            <field name="target_value">100000</field>
+            <field name="actual_value">85000</field>
+            <field name="percentage_achieved">85</field>
+            <field name="start_date">2024-01-01</field>
+            <field name="end_date">2024-12-31</field>
+            <field name="partner_id" ref="base.res_partner_1"/>
+        </record>
+
+        <!-- Example KPI 2 -->
+        <record id="sales_kpi_example_2" model="sales.kpi">
+            <field name="name">Reduce Sales Cycle Time</field>
+            <field name="target_value">20</field>
+            <field name="actual_value">18</field>
+            <field name="percentage_achieved">90</field>
+            <field name="start_date">2024-01-01</field>
+            <field name="end_date">2024-06-30</field>
+            <field name="partner_id" ref="base.res_partner_2"/>
+        </record>
+
+    </data>
+</odoo>
