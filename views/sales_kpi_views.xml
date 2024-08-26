@@ -8,7 +8,7 @@
                 <form string="Sales KPI">
                     <group>
                         <field name="name"/>
-                        <field name="tag_ids"/>
+                        <!-- <field name="tag_ids"/> -->
                         <field name="target_value"/>
                         <field name="actual_value"/>
                         <field name="start_date"/>
