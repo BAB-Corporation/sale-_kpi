@@ -9,16 +9,9 @@
                     <group>
                         <field name="name"/>
                         <field name="target_value"/>
-                        <field name="actual_value"/> <!-- Changed from achieved_value to actual_value -->
+                        <field name="actual_value"/>
                         <field name="start_date"/>
                         <field name="end_date"/>
-                        <!-- Example of where the issue might be -->
-                        <!-- Correcting unescaped characters -->
-                        <field name="description" widget="html">
-                            <div>
-                                Achieved: &lt;actual_value&gt;
-                            </div>
-                        </field>
                     </group>
                 </form>
             </field>
@@ -32,7 +25,7 @@
                 <tree string="Sales KPI">
                     <field name="name"/>
                     <field name="target_value"/>
-                    <field name="actual_value"/> <!-- Changed from achieved_value to actual_value -->
+                    <field name="actual_value"/>
                     <field name="start_date"/>
                     <field name="end_date"/>
                 </tree>
@@ -46,7 +39,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- Add the action to the Sales menu -->
+        <!-- Add the action to the Sales menu or other appropriate parent -->
         <menuitem id="menu_sales_kpi_root" name="Sales KPI" parent="sales_team.menu_sales" sequence="10" action="action_sales_kpi"/>
     </data>
 </odoo>
