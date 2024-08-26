@@ -40,6 +40,6 @@
         </record>
 
         <!-- Add the action to the Sales menu or other appropriate parent -->
-        <menuitem id="menu_sales_kpi_root" name="Sales KPI" parent="sales_team.menu_sales" sequence="10" action="action_sales_kpi"/>
+        <!-- <menuitem id="menu_sales_kpi_root" name="Sales KPI" parent="sales_team.menu_sales" sequence="10" action="action_sales_kpi"/> -->
     </data>
 </odoo>
