@@ -9,13 +9,14 @@
                     <group>
                         <field name="name"/>
                         <field name="target_value"/>
-                        <field name="achieved_value"/>
-                        <field name="date"/>
+                        <field name="actual_value"/> <!-- Changed from achieved_value to actual_value -->
+                        <field name="start_date"/>
+                        <field name="end_date"/>
                         <!-- Example of where the issue might be -->
                         <!-- Correcting unescaped characters -->
                         <field name="description" widget="html">
                             <div>
-                                Achieved: &lt;achieved_value&gt;
+                                Achieved: &lt;actual_value&gt;
                             </div>
                         </field>
                     </group>
@@ -31,8 +32,9 @@
                 <tree string="Sales KPI">
                     <field name="name"/>
                     <field name="target_value"/>
-                    <field name="achieved_value"/>
-                    <field name="date"/>
+                    <field name="actual_value"/> <!-- Changed from achieved_value to actual_value -->
+                    <field name="start_date"/>
+                    <field name="end_date"/>
                 </tree>
             </field>
         </record>
