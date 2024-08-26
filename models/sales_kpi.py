@@ -9,7 +9,7 @@ class SalesKPI(models.Model):
     name = fields.Char(string='KPI Name', required=True, track_visibility='onchange')
     description = fields.Text(string='Description')
     target_value = fields.Float(string='Target Value', required=True, track_visibility='onchange')
-    actual_value = fields.Float(string='Actual Value', compute='_compute_actual_value', store=True, default=0.0)
+    actual_value = fields.Float(string='Actual Value', compute='_compute_actual_value', store=True, default=0.0,track_visibility='onchange')
     percentage_achieved = fields.Float(string='Achievement (%)', compute='_compute_percentage_achieved', store=True, default=0.0)
     start_date = fields.Date(string='Start Date', required=True)
     end_date = fields.Date(string='End Date', required=True)
